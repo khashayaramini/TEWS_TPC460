@@ -9,6 +9,10 @@ Note: Exar is now part of MaxLinear. All description below will be referred as M
 
 Revision History
 ----------------
+Changes from Ver 2.6 to 2.6_tews
+Add support for TEWS TCP460
+No longer support `.vendor		= 0x13a8, .device		= 0x158`
+
 Changes from Ver 2.5 to 2.6
 - Ensure LCR bit-7 = 0 when accessing RHR/THR/IER/ISR to avoid incorrect register write.
 - Remove warning messages when building with gcc 7.4.0 (Ubuntu 18.04).
