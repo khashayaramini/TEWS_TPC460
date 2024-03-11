@@ -2339,10 +2339,11 @@ init_one_xrpciserialcard(struct pci_dev *dev, const struct pci_device_id *ent)
 	memset(&serial_port, 0, sizeof(struct uart_port));
 	serial_port.flags = UPF_SKIP_TEST | UPF_BOOT_AUTOCONF | UPF_SHARE_IRQ;
 
+	// Patch: const 12 added to offset the problem with our card
 	if((priv->dev->device == 0x152)	||(priv->dev->device == 0x154)||(priv->dev->device == 0x158))
-		serial_port.uartclk = board->base_baud * 16;
+		serial_port.uartclk = board->base_baud * 16 * 12;
 	else
-		serial_port.uartclk = board->base_baud * 4;
+		serial_port.uartclk = board->base_baud * 4 * 12;
 	serial_port.irq = dev->irq;
 	serial_port.dev = &dev->dev;
 	for (i = 0; i < nr_ports; i++) {
